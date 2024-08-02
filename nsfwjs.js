@@ -1,5 +1,5 @@
 
-export const NSFW_CLASSES: {[classId: number]: 'Drawing' | 'Hentai' | 'Neutral' | 'Porn' | 'Sexy'} = {
+const NSFW_CLASSES: {[classId: number]: 'Drawing' | 'Hentai' | 'Neutral' | 'Porn' | 'Sexy'} = {
   0: 'Drawing',
   1: 'Hentai',
   2: 'Neutral',
@@ -20,14 +20,14 @@ type ModelJSON = tf.io.ModelJSON;
 type ModelArtifacts = tf.io.ModelArtifacts;
 type WeightDataBase64 = { [x: string]: string };
 
-export type frameResult = {
+type frameResult = {
   index: number;
   totalFrames: number;
   predictions: Array<predictionType>;
   image: HTMLCanvasElement | ImageData;
 };
 
-export type classifyConfig = {
+type classifyConfig = {
   topk?: number;
   fps?: number;
   onFrame?: (result: frameResult) => any;
@@ -38,12 +38,12 @@ interface nsfwjsOptions {
   type?: string;
 }
 
-export type predictionType = {
+type predictionType = {
   className: (typeof NSFW_CLASSES)[keyof typeof NSFW_CLASSES];
   probability: number;
 };
 
-export type ModelName = "MobileNetV2" | "MobileNetV2Mid" | "InceptionV3";
+type ModelName = "MobileNetV2" | "MobileNetV2Mid" | "InceptionV3";
 
 type ModelConfig = {
   [key in ModelName]: {
@@ -118,14 +118,14 @@ async function loadModel(modelName: ModelName | string) {
   return handler;
 }
 
-export async function load(modelOrUrl?: ModelName): Promise<NSFWJS>;
+async function load(modelOrUrl?: ModelName): Promise<NSFWJS>;
 
-export async function load(
+async function load(
   modelOrUrl?: string,
   options?: nsfwjsOptions
 ): Promise<NSFWJS>;
 
-export async function load(
+async function load(
   modelOrUrl?: string,
   options: nsfwjsOptions = { size: IMAGE_SIZE }
 ) {
@@ -224,7 +224,7 @@ class JSONHandler implements IOHandler {
   }
 }
 
-export class NSFWJS {
+class NSFWJS {
   public endpoints: string[];
   public model: tf.LayersModel | tf.GraphModel;
 
