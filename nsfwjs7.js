@@ -182,7 +182,8 @@ class NSFWJS {
   }
 
   async load() {
-    const { size, type } = this.options
+    //const { size, type } = this.options
+    let type = "graph";
     if (type === "graph") {
       this.model = await tf.loadGraphModel(this.urlOrIOHandler)
     } else {
