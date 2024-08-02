@@ -1,4 +1,4 @@
-
+import { NSFW_CLASSES } from "./nsfw_classes";
 
 declare global {
   namespace NodeJS {
