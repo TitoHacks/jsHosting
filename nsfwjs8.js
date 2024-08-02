@@ -161,7 +161,7 @@ class JSONHandler {
   }
 }
 
-export class NSFWJS {
+class NSFWJS {
   intermediateModels = {}
 
   constructor(modelUrlOrIOHandler, options) {
