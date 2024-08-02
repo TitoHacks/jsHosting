@@ -68,7 +68,7 @@ async function loadModel(modelName) {
   return handler
 }
 
-async function load(modelOrUrl, options = { size: IMAGE_SIZE }) {
+export async function load(modelOrUrl, options = { size: IMAGE_SIZE }) {
   if (tf == null) {
     throw new Error(
       `Cannot find TensorFlow.js. If you are using a <script> tag, please ` +
@@ -161,7 +161,7 @@ class JSONHandler {
   }
 }
 
-class NSFWJS {
+export class NSFWJS {
   intermediateModels = {}
 
   constructor(modelUrlOrIOHandler, options) {
@@ -182,8 +182,7 @@ class NSFWJS {
   }
 
   async load() {
-    //const { size, type } = this.options
-    let type = "graph";
+    const { size, type } = this.options
     if (type === "graph") {
       this.model = await tf.loadGraphModel(this.urlOrIOHandler)
     } else {
