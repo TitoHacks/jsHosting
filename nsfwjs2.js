@@ -1,5 +1,5 @@
 
-const NSFW_CLASSES: {[classId: number]: 'Drawing' | 'Hentai' | 'Neutral' | 'Porn' | 'Sexy'} = {
+const NSFW_CLASSES= {
   0: 'Drawing',
   1: 'Hentai',
   2: 'Neutral',
