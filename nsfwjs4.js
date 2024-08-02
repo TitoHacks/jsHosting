@@ -7,14 +7,6 @@ const NSFW_CLASSES= {
   4: 'Sexy'
 }
 
-declare global {
-  namespace NodeJS {
-    interface Global {
-      [x: string]: any;
-    }
-  }
-}
-
 type IOHandler = tf.io.IOHandler;
 type ModelJSON = tf.io.ModelJSON;
 type ModelArtifacts = tf.io.ModelArtifacts;
