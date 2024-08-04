@@ -534,9 +534,7 @@
                         }
                         objectDetection = new ObjectDetection(base, modelUrl);
                         return [4 /*yield*/, objectDetection.load()];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/, objectDetection];
+                  
                 }
             });
         });
